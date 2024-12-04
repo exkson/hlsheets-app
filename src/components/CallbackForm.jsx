@@ -71,7 +71,7 @@ export default function CallbackForm() {
 
 async function fetchSheet(code, setRequestInProgress) {
     setRequestInProgress(true)
-    let response = await axios.get(`${API_URL}/spreadsheets/${code}`);
+    let response = await axios({ method: "GET", url: `${API_URL}/spreadsheets/${code}` });
     setRequestInProgress(false)
     return { data: response.data, status: response.status }
 }
